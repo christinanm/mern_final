@@ -31,10 +31,17 @@ const Navbar = ({setQuery}) => {
                 (
                 <>
                 <span className = "mr-4">{user.name}</span>
-                
-                <button className = "bg-red-500 px-4 py-2 rounded" onClick = {logout}>
-                    Log Out
+                <button
+                className="bg-red-500 px-4 py-2 rounded"
+                 onClick={() => {
+                logout();
+                window.location.reload();
+                 }}
+                >
+                 Log Out
                 </button>
+
+
                 </>
             )}
             </div>
