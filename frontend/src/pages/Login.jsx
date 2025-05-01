@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link, useNavigate  } from "react-router-dom";
 import { useAuth } from "../context/ContextProvider";
 
+//REPLACE WITH LOCALHOST IF NEEDED LOCALLY
+const baseURL = 'https://web215-mern-backend.onrender.com';
+
 const Login = () => {
 
     const [email, setEmail] = useState("")
@@ -14,7 +17,7 @@ const Login = () => {
         e.preventDefault()
         try {
           const response = await axios.post(
-            'http://localhost:5000/api/auth/login',
+            `${baseURL}/api/auth/login`,
             { email, password }
           );
           if (response.data.success) {
