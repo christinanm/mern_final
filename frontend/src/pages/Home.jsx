@@ -55,7 +55,7 @@ const Home = () => {
     const addNote = async (title, description) => {
         try {
             const response = await axios.post(
-              `${baseURL}/api/note`,
+              `${baseURL}/api/note/add`,
               { title, description }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
