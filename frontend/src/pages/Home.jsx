@@ -6,6 +6,10 @@ import NoteCard from '../components/NoteCard';
 import { toast } from 'react-toastify';
 
 
+//REPLACE WITH LOCALHOST IF NEEDED LOCALLY
+const baseURL = 'https://web215-mern-backend.onrender.com';
+
+
 const Home = () => {
     const [isModalOpen, setModalOpen] = useState(false)
     const [filteredNotes, setFilteredNote] = useState(false)
@@ -28,7 +32,7 @@ const Home = () => {
 
     const fetchNotes = async () => {
         try {
-            const {data} = await axios.get("http://localhost:5000/api/note", {
+            const {data} = await axios.get(`${baseURL}/api/note`, {
                 headers: {
                      Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
@@ -51,7 +55,7 @@ const Home = () => {
     const addNote = async (title, description) => {
         try {
             const response = await axios.post(
-              'http://localhost:5000/api/note/add',
+              `${baseURL}/api/note`,
               { title, description }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -70,7 +74,7 @@ const Home = () => {
     const deleteNote = async (id) => {
         try {
             const response = await axios.delete(
-              `http://localhost:5000/api/note/${id}`,
+              `${baseURL}/api/note${id}`,
               {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -89,7 +93,7 @@ const Home = () => {
     const editNote = async (id, title, description) => {
         try {
             const response = await axios.put(
-              `http://localhost:5000/api/note/${id}`,
+              `${baseURL}/api/note${id}`,
               { title, description }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
