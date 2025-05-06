@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import axios from 'axios'
 import { Link, useNavigate } from "react-router-dom";
 
+//REPLACE WITH LOCALHOST IF NEEDED LOCALLY
+const baseURL = 'https://web215-mern-backend.onrender.com';
+
 const Signup = () => {
 
     const [name, setName] = useState('')
@@ -13,7 +16,7 @@ const Signup = () => {
         e.preventDefault()
         try {
           const response = await axios.post(
-            'http://localhost:5000/api/auth/register',
+            `${baseURL}/api/auth/register`,
             { name, email, password }
           );
           if (response.data.success) {
