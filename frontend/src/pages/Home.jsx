@@ -74,7 +74,7 @@ const Home = () => {
     const deleteNote = async (id) => {
         try {
             const response = await axios.delete(
-              `${baseURL}/api/note${id}`,
+              `${baseURL}/api/note/${id}`,
               {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -93,7 +93,7 @@ const Home = () => {
     const editNote = async (id, title, description) => {
         try {
             const response = await axios.put(
-              `${baseURL}/api/note${id}`,
+              `${baseURL}/api/note/${id}`,
               { title, description }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
