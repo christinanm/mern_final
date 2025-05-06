@@ -19,7 +19,7 @@ const ContextProvider = ({children}) => {
     useEffect(() => {
         const verifyUser = async () => {
             try {
-                const res = await axios.get(`${baseURL}api/auth/verify`, {
+                const res = await axios.get(`${baseURL}/api/auth/verify`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     }
