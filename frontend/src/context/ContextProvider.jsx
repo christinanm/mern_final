@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 
+const baseURL = 'https://web215-mern-backend.onrender.com';
+
 const authContext = createContext()
 
 const ContextProvider = ({children}) => {
@@ -17,7 +19,7 @@ const ContextProvider = ({children}) => {
     useEffect(() => {
         const verifyUser = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/auth/verify', {
+                const res = await axios.get(`${baseURL}api/auth/verify`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     }
